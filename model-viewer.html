@@ -14,17 +14,21 @@
 
 <model-viewer
   src="model.glb"
+
   ar
   ar-modes="scene-viewer quick-look"
-  ar-placement="floor"
+
+  ar-placement="fixed"   <!-- KRİTİK -->
+
   camera-controls
   interaction-prompt="none"
 
   exposure="1"
   environment-image="neutral"
-  shadow-intensity="0.3"
+  shadow-intensity="0.2"
 
-  camera-orbit="0deg 75deg 3m"
+  camera-orbit="0deg 75deg 2.5m"
+  field-of-view="30deg"
 
   style="width:100vw; height:100vh;">
 </model-viewer>
