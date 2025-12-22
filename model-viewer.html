@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Redüktör AR Demo</title>
+  <title>Redüktör AR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script type="module"
@@ -10,15 +10,14 @@
   </script>
 </head>
 
-<body style="margin:0; background:#f0f0f0">
+<body style="margin:0; background:#e5e5e5">
 
 <model-viewer
-  src="reductor.glb"
+  src="redutor.glb"
 
   ar
   ar-modes="scene-viewer quick-look"
-
-  ar-placement="fixed"   <!-- KRİTİK -->
+  ar-placement="floor"
 
   camera-controls
   interaction-prompt="none"
@@ -27,8 +26,13 @@
   environment-image="neutral"
   shadow-intensity="0.2"
 
-  camera-orbit="0deg 75deg 2.5m"
+  <!-- ZEMİN & KAMERA STABİLİTESİ -->
+  camera-orbit="0deg 75deg 3m"
   field-of-view="30deg"
+
+  <!-- MODELİN YERE OTURMASI -->
+  min-camera-orbit="auto auto 2m"
+  max-camera-orbit="auto auto 6m"
 
   style="width:100vw; height:100vh;">
 </model-viewer>
