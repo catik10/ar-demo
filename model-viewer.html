@@ -5,7 +5,6 @@
   <title>Redüktör AR Viewer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- MODEL VIEWER -->
   <script type="module"
     src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js">
   </script>
@@ -36,26 +35,25 @@
   camera-controls
   disable-zoom
 
+  camera-orbit="auto auto auto"
+  camera-target="auto auto auto"
+
+  field-of-view="20deg"
+
+  min-camera-orbit="auto auto 2.2m"
+  max-camera-orbit="auto auto 2.2m"
+
+  exposure="0.9"
+  shadow-intensity="0.35"
+
+  environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr"
+  tone-mapping="neutral"
+
   ar
   ar-modes="scene-viewer quick-look webxr"
   ar-placement="floor"
 
-  camera-orbit="0deg 75deg auto"
-  min-camera-orbit="auto auto 1.5m"
-  max-camera-orbit="auto auto 3m"
-
-  field-of-view="30deg"
-
-  exposure="0.9"
-  shadow-intensity="0.4"
-
-  environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr"
-
-  tone-mapping="neutral"
-
   interaction-prompt="none"
-
-  scale="1 1 1"
 >
 </model-viewer>
 
