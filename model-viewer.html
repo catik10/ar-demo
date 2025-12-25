@@ -2,9 +2,8 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>AR Model Viewer</title>
+  <title>Model Viewer – Redüktör</title>
 
-  <!-- Model Viewer -->
   <script type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
@@ -15,61 +14,49 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      background: #e5e5e5;
+      background: #e6e6e6;
       overflow: hidden;
     }
 
     model-viewer {
       width: 100%;
       height: 100%;
-      background: #e5e5e5;
-    }
-
-    .info {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      padding: 8px 12px;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      border-radius: 6px;
-      z-index: 10;
+      background: #e6e6e6;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="info">AR Model Viewer – Redüktör</div>
-
   <model-viewer
     src="./glb/100973.glb"
 
     camera-controls
     auto-rotate
-    rotation-per-second="15deg"
+    rotation-per-second="10deg"
 
     ar
     ar-modes="webxr scene-viewer quick-look"
 
     environment-image="neutral"
-    exposure="1.15"
-    shadow-intensity="1"
-    shadow-softness="0.8"
+    exposure="1.1"
     tone-mapping="commerce"
+    shadow-intensity="1"
+    shadow-softness="0.6"
 
     interaction-prompt="none"
 
-    /* 🔥 BOYUT (MM → METRE DÜZELTME) */
-    scale="0.001 0.001 0.001"
+    /* 🔥 DOĞRU ÖLÇEK (MM → METRE) */
+    scale="0.0025 0.0025 0.0025"
 
-    /* 🔥 MERKEZ VE KAMERA */
-    camera-target="0m 0.75m 0m"
-    camera-orbit="45deg 65deg 2.5m"
-    min-camera-orbit="auto 10deg auto"
-    max-camera-orbit="auto 85deg auto"
+    /* 🔥 MODEL TAM ORTA */
+    camera-target="0m 0.45m 0m"
+
+    /* 🔥 KAMERA YAKIN & ORTALI */
+    camera-orbit="45deg 65deg 1.6m"
+
+    min-camera-orbit="auto 30deg 1.2m"
+    max-camera-orbit="auto 85deg 3m"
 
     loading="eager">
   </model-viewer>
