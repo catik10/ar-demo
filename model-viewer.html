@@ -2,9 +2,9 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>Redüktör AR Viewer</title>
+  <title>AR Model Viewer</title>
 
-  <!-- RESMİ MODEL-VIEWER -->
+  <!-- Model Viewer -->
   <script type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
@@ -15,45 +15,64 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      background: #dcdcdc;
+      background: #e5e5e5;
       overflow: hidden;
     }
 
     model-viewer {
       width: 100%;
       height: 100%;
-      background: #dcdcdc;
+      background: #e5e5e5;
+    }
+
+    .info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 8px 12px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      border-radius: 6px;
+      z-index: 10;
     }
   </style>
 </head>
 
 <body>
 
-<model-viewer
-  src="./glb/100973.glb"
+  <div class="info">AR Model Viewer – Redüktör</div>
 
-  camera-controls
-  auto-rotate
-  rotation-per-second="20deg"
+  <model-viewer
+    src="./glb/100973.glb"
 
-  ar
-  ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    auto-rotate
+    rotation-per-second="15deg"
 
-  environment-image="neutral"
-  exposure="1.1"
-  shadow-intensity="1"
-  shadow-softness="0.7"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
 
-  tone-mapping="commerce"
-  interaction-prompt="none"
+    environment-image="neutral"
+    exposure="1.15"
+    shadow-intensity="1"
+    shadow-softness="0.8"
+    tone-mapping="commerce"
 
-  min-camera-orbit="auto 10deg auto"
-  max-camera-orbit="auto 85deg auto"
-  camera-orbit="45deg 65deg 2.5m"
+    interaction-prompt="none"
 
-  loading="eager">
+    /* 🔥 BOYUT (MM → METRE DÜZELTME) */
+    scale="0.001 0.001 0.001"
 
-</model-viewer>
+    /* 🔥 MERKEZ VE KAMERA */
+    camera-target="0m 0.75m 0m"
+    camera-orbit="45deg 65deg 2.5m"
+    min-camera-orbit="auto 10deg auto"
+    max-camera-orbit="auto 85deg auto"
+
+    loading="eager">
+  </model-viewer>
 
 </body>
 </html>
