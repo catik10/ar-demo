@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>AR Test</title>
+<head>
+  <meta charset="UTF-8" />
+  <title>AR Model Viewer</title>
 
-    <script type="module"
-      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-    </script>
+  <!-- Mobil AR için şart -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <style>
-      body {
-        margin: 0;
-        background: #111;
-      }
-      model-viewer {
-        width: 100vw;
-        height: 100vh;
-      }
-    </style>
-  </head>
+  <!-- model-viewer -->
+  <script
+    type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
 
-  <body>
-    <model-viewer
-      src=src="https://catik10.github.io/ar-demo/glb/100973.glb"
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      overflow: hidden;
+    }
 
-      camera-controls
-      auto-rotate
-      ar
-      ar-modes="scene-viewer webxr quick-look"
-      shadow-intensity="1">
-    </model-viewer>
-  </body>
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+      background-color: #111;
+    }
+  </style>
+</head>
+
+<body>
+
+  <model-viewer
+    src="https://catik10.github.io/ar-demo/glb/100973.glb"
+    camera-controls
+    auto-rotate
+    ar
+    ar-modes="scene-viewer webxr quick-look"
+    ar-placement="floor"
+    interaction-prompt="auto"
+    shadow-intensity="1"
+    exposure="1"
+    environment-image="neutral"
+
+    camera-orbit="45deg 65deg 2m"
+    min-camera-orbit="auto auto 0.5m"
+    max-camera-orbit="auto auto 10m"
+
+    scale="1 1 1">
+  </model-viewer>
+
+</body>
 </html>
