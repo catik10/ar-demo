@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8" />
-<title>Redüktör AR</title>
+<title>Redüktör Model Viewer</title>
 
 <script type="module"
   src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
@@ -13,14 +13,14 @@
     margin: 0;
     width: 100%;
     height: 100%;
-    background: #dcdcdc;
+    background: #e0e0e0;
     overflow: hidden;
   }
 
   model-viewer {
     width: 100%;
     height: 100%;
-    background: #dcdcdc;
+    background: #e0e0e0;
   }
 </style>
 </head>
@@ -32,42 +32,35 @@
   src="./glb/100973.glb"
 
   camera-controls
-  disable-pan
+  auto-rotate="false"
 
   ar
   ar-modes="webxr scene-viewer quick-look"
 
-  /* METAL GÖRÜNÜM */
-  environment-image="https://modelviewer.dev/shared-assets/environments/warehouse.hdr"
-  exposure="0.85"
+  /* METAL / GERÇEKÇİ IŞIK */
+  environment-image="https://modelviewer.dev/shared-assets/environments/industrial_sunset_02_1k.hdr"
+  exposure="1"
   tone-mapping="commerce"
-  shadow-intensity="0.6"
+  shadow-intensity="0.5"
 
-  /* ÖLÇEK */
-  scale="0.0025 0.0025 0.0025"
+  /* EN KRİTİK SATIR */
+  camera-target="auto"
+  camera-orbit="auto auto auto"
 
-  /* MERKEZ */
-  camera-target="0m 0.35m 0m"
-
-  /* KAMERA */
-  camera-orbit="45deg 65deg 1.2m"
-  min-camera-orbit="auto 30deg 0.9m"
-  max-camera-orbit="auto 85deg 2.5m"
-
+  /* DOKUNMA */
   interaction-prompt="none"
   loading="eager">
-
 </model-viewer>
 
 <script>
   const mv = document.getElementById('mv');
 
+  // Model yüklendiğinde otomatik kadraj
   mv.addEventListener('load', () => {
-    // Model yüklendiğinde kamerayı garantiye al
-    mv.cameraOrbit = '45deg 65deg 1.2m';
-    mv.cameraTarget = '0m 0.35m 0m';
+    mv.zoomTo();
   });
 </script>
 
 </body>
 </html>
+
