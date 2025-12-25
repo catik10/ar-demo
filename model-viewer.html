@@ -2,14 +2,11 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>AR Model Viewer</title>
+  <title>Redüktör AR Viewer</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- MODEL VIEWER – RESMİ GOOGLE CDN -->
-  <script
-    type="module"
-    src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js">
+  <!-- RESMİ MODEL-VIEWER -->
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
 
   <style>
@@ -18,14 +15,14 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      background: #e5e5e5;
+      background: #dcdcdc;
       overflow: hidden;
     }
 
     model-viewer {
-      width: 100vw;
-      height: 100vh;
-      background-color: #e5e5e5;
+      width: 100%;
+      height: 100%;
+      background: #dcdcdc;
     }
   </style>
 </head>
@@ -33,23 +30,28 @@
 <body>
 
 <model-viewer
-  src="https://catik10.github.io/ar-demo/glb/100973.glb"
+  src="./glb/100973.glb"
 
   camera-controls
   auto-rotate
+  rotation-per-second="20deg"
 
   ar
-  ar-modes="scene-viewer webxr quick-look"
-  ar-placement="floor"
+  ar-modes="webxr scene-viewer quick-look"
 
   environment-image="neutral"
-  exposure="1"
-  shadow-intensity="0.7"
+  exposure="1.1"
+  shadow-intensity="1"
+  shadow-softness="0.7"
 
-  tone-mapping="aces"
+  tone-mapping="commerce"
+  interaction-prompt="none"
+
+  min-camera-orbit="auto 10deg auto"
+  max-camera-orbit="auto 85deg auto"
   camera-orbit="45deg 65deg 2.5m"
-  min-camera-orbit="auto auto 1m"
-  max-camera-orbit="auto auto 10m">
+
+  loading="eager">
 
 </model-viewer>
 
