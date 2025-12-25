@@ -1,66 +1,63 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<title>Redüktör Model Viewer</title>
+  <meta charset="UTF-8" />
+  <title>Redüktör AR Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<script type="module"
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-</script>
+  <!-- MODEL VIEWER -->
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js">
+  </script>
 
-<style>
-  html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background: #e0e0e0;
-    overflow: hidden;
-  }
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #e5e5e5;
+      overflow: hidden;
+    }
 
-  model-viewer {
-    width: 100%;
-    height: 100%;
-    background: #e0e0e0;
-  }
-</style>
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      background: #e5e5e5;
+    }
+  </style>
 </head>
 
 <body>
 
 <model-viewer
-  id="mv"
   src="./glb/100973.glb"
 
   camera-controls
-  auto-rotate="false"
+  disable-zoom
 
   ar
-  ar-modes="webxr scene-viewer quick-look"
+  ar-modes="scene-viewer quick-look webxr"
+  ar-placement="floor"
 
-  /* METAL / GERÇEKÇİ IŞIK */
-  environment-image="https://modelviewer.dev/shared-assets/environments/industrial_sunset_02_1k.hdr"
-  exposure="1"
-  tone-mapping="commerce"
-  shadow-intensity="0.5"
+  camera-orbit="0deg 75deg auto"
+  min-camera-orbit="auto auto 1.5m"
+  max-camera-orbit="auto auto 3m"
 
-  /* EN KRİTİK SATIR */
-  camera-target="auto"
-  camera-orbit="auto auto auto"
+  field-of-view="30deg"
 
-  /* DOKUNMA */
+  exposure="0.9"
+  shadow-intensity="0.4"
+
+  environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr"
+
+  tone-mapping="neutral"
+
   interaction-prompt="none"
-  loading="eager">
+
+  scale="1 1 1"
+>
 </model-viewer>
-
-<script>
-  const mv = document.getElementById('mv');
-
-  // Model yüklendiğinde otomatik kadraj
-  mv.addEventListener('load', () => {
-    mv.zoomTo();
-  });
-</script>
 
 </body>
 </html>
-
